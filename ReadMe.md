@@ -19,18 +19,20 @@ Migrate to GSON lib
 
 #### Story #6
 
-## How do we Collaborate?
+## How do we collaborate on stories?
 * You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories or
 
 * You may form 3-4 pairs, with one pair working on long-lived change, and the   remaining pairs working on faster releases of the short stories.
 
-## Constraints
-### Part 1 Thou shall use a branch for the long story
-Constraint: You must use an SCM branch on which this long story will be developed.  You may or may not use short-lived branches for other stories and then merge it back to main when you are done with that story.
+## But before development read about these Constraints
+You will solve the same problem once with each constraint.  So you may have to clone this project twice for each constraint.
+
+### Constraint #1 - Use a branch for the long story
+You must use an SCM branch on which this long story will be developed.  You may or may not use short-lived branches for other stories and then merge it back to main when you are done with that story.
 
 
-### Part 2 Use Main Branch Only
-Constraint: Use main branch only for all the stories, you are not allowed to create branch for any stories.
+### Constraint #2 Use Main Branch Only
+Use main branch only for all the stories, you are not allowed to create branch for any stories.
 
 
 ## Learning Retrospective
