@@ -6,7 +6,7 @@ This product needs to process small and big JSON both, hence migrating to GSON i
 
 ## Stories
 
-#### Story #1
+#### Story #1 Replace Jackson
 Migrate to GSON lib
 
 #### Story #2
@@ -27,7 +27,7 @@ Migrate to GSON lib
 ## But before development read about these Constraints
 You will solve the same problem once with each constraint.  So you may have to clone this project twice for each constraint.
 
-### Constraint #1 - Must use a branch for the long story
+### Constraint #1 - Must use a branch for the Replace Jackson story
 You must use an SCM branch on which this long story will be developed.  You may or may not use short-lived branches for other stories and then merge it back to main when you are done with that story.
 
 
