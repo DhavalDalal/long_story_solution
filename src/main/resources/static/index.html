@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/main.js"></script>
+    <div w3-include-html="templates/header.html"></div>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1>Perfect Portfolios</h1>
+        <hr/>
+        <a type="button" class="btn btn-lg btn-primary" href="/actuator/health"><span
+                class="glyphicon glyphicon-stats"></span> Ping</a>
+        <hr/>
+        <a type="button" class="btn btn-lg btn-primary" href="/portfolio"><span
+                class="glyphicon glyphicon-folder-open"></span> All Portfolios</a>
+        <a type="button" class="btn btn-lg btn-primary" href="/portfolio/networth"><span
+                class="glyphicon glyphicon-usd"></span> Net Worth</a>
+    </div>
+</div>
+<script>
+  includeHTML();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+}
+
+group = 'com.tsys.long_story'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation group: 'org.json', name: 'json', version: '20180130'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+eclipse {
+	classpath {
+		downloadJavadoc = true
+		downloadSources = true
+	}
+}
+
+idea {
+	module {
+		downloadJavadoc = true
+		downloadSources = true
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// To reload on changing a static file, we need a way to copy
+// the changed files into the classpath of the running app.
+task reload(type: Copy) {
+	from 'src/main/resources'
+	into 'build/resources/main'
+	include 'static/**'
+	include 'templates/**'
+	include 'custom/**'
+}
+
+// To pass arguments while running our application using Gradle
+// Plugin, we need to configure our bootRun task:
+// Usage on command line:
+// gradle bootRun -Dserver.port=10001 -DcustomArgument=custom
+bootRun {
+	systemProperties = System.properties
+}
