@@ -57,7 +57,7 @@ Spring Boot uses Jackson by default for serializing and deserializing request an
 If you want to use GSON instead of Jackson then it’s just a matter of adding Gson dependency in your pom.xml file and specifying a property in the application.properties file to tell Spring Boot to use GSON as your preferred json mapper.
 
 Force Spring Boot to use GSON instead of Jackson
-####1. Add Gson dependency
+**_1. Add Gson dependency_**
 Open your ```pom.xml``` file and add the GSON dependency like so -
 ```
 <!-- Include GSON dependency -->
@@ -79,7 +79,7 @@ If you’re curious how Spring Boot does that, then take a look at this [GsonAut
 
 Jackson is also configured in a similar fashion with [JacksonAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jackson/JacksonAutoConfiguration.java) class.
 
-####2. Set the preferred json mapper to gson
+**_2. Set the preferred json mapper to gson_**
 You can now ask Spring Boot to use Gson as your preferred json mapper by specifying the following property in the application.properties file -
 
 ```
@@ -89,7 +89,7 @@ spring.http.converters.preferred-json-mapper=gson
 That’s all you need to do to force Spring Boot to use Gson instead of Jackson.
 
 
-####3. Configure GSON in Spring Boot
+**_3. Configure GSON in Spring Boot_**
 Now that your Spring Boot application is using Gson, you can configure Gson by specifying various properties in the application.properties file. The following properties are taken from Spring Boot Common Application Properties index page -
 ```
 # GSON (GsonProperties)
