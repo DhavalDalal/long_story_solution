@@ -20,15 +20,22 @@ public class Portfolio {
 
   public Portfolio updateIdIfEmpty() {
     if (id == null || id.isEmpty() || id.isBlank())
-      return new Portfolio(UUID.randomUUID().toString(), new ArrayList<>(holdings));
+      return new Portfolio(createId(), new ArrayList<>(holdings));
 
     return this;
   }
 
-  // Cannot remove deprecated method as it is needed by Jackson
-  // NOTE: Jackson requires public getter methods
-  // or keep fields public and immutable
-  @Deprecated()
+  String createId() {
+    return UUID.randomUUID().toString();
+  }
+
+  /**
+   * Cannot remove deprecated method as it is needed by Jackson
+   * NOTE: Jackson requires public getter methods or keep fields
+   * public and immutable.
+   * @deprecated
+   */
+  @Deprecated
   public List<Holding> getHoldings() {
     return Collections.unmodifiableList(holdings);
   }
@@ -45,9 +52,7 @@ public class Portfolio {
   public Portfolio track(NationalStockService stockService) {
     Stream.iterate(0, index -> index + 1)
             .limit(holdings.size())
-//            .parallel()
-            .forEach(index ->
-                    holdings.set(index, holdings.get(index).update(stockService)));
+            .forEach(index -> holdings.get(index).updateCurrentPrice(stockService));
     return this;
   }
 

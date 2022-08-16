@@ -61,13 +61,18 @@ If you want to use GSON instead of Jackson then it’s just a matter of adding G
 **_1. Add Gson dependency_**
 Open your ```pom.xml``` file and add the GSON dependency like so -
 ```
-<!-- Include GSON dependency -->
 <dependency>
 	<groupId>com.google.code.gson</groupId>
 	<artifactId>gson</artifactId>
 	<version>2.8.4</version>
 </dependency>
 ```
+
+Or open your ``` build.gradle``` file and add the GSON dependency like so -
+```
+    implementation  'com.google.code.gson:gson:2.8.4'
+```
+
 Once you do that, Spring Boot will detect Gson dependency on the classpath and 
 automatically create a Gson bean with sensible default configurations. 
 You can also autowire gson in your spring components directly like so -
@@ -76,6 +81,7 @@ You can also autowire gson in your spring components directly like so -
 @Autowire
 private Gson gson;
 ```
+
 If you’re curious how Spring Boot does that, then take a look at this [GsonAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/gson/GsonAutoConfiguration.java)  class. Notice how it uses @ConditionalOnClass(Gson.class) annotation to trigger the auto-configuration when Gson is available on the classpath.
 
 Jackson is also configured in a similar fashion with [JacksonAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jackson/JacksonAutoConfiguration.java) class.
