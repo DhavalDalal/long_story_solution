@@ -64,13 +64,15 @@ Open your ```pom.xml``` file and add the GSON dependency like so -
 <dependency>
 	<groupId>com.google.code.gson</groupId>
 	<artifactId>gson</artifactId>
-	<version>2.8.4</version>
+	<version>2.9.1</version>
 </dependency>
 ```
 
 Or open your ``` build.gradle``` file and add the GSON dependency like so -
 ```
-    implementation  'com.google.code.gson:gson:2.8.4'
+dependencies {
+  implementation 'com.google.code.gson:gson:2.9.1'
+}
 ```
 
 Once you do that, Spring Boot will detect Gson dependency on the classpath and 
@@ -153,6 +155,11 @@ If you want to get rid of Jackson completely then you can exclude it from spring
 	</exclusions>
 </dependency>
 ```
+
+## GSON Help and Tutorials
+* [https://github.com/google/gson](https://github.com/google/gson)
+* [https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization](https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization)
+* [https://www.baeldung.com/jackson-vs-gson](https://www.baeldung.com/jackson-vs-gson)
 
 ## Reference Documentation
 For further reference, please consider the following sections:
