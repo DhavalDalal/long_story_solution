@@ -1,14 +1,12 @@
 package com.tsys.long_story.web;
 
+import com.tsys.long_story.domain.Holding;
+import com.tsys.long_story.domain.Portfolio;
+import com.tsys.long_story.domain.Stock;
 import com.tsys.long_story.service.local.PortfolioService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,7 +17,12 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import static org.mockito.BDDMockito.given;
 
 // For Junit4, use @RunWith
 // @RunWith(SpringRunner.class)
@@ -46,6 +49,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public class PortfolioControllerSpecs {
     @MockBean
     private PortfolioService portfolioService;
+    private final Stock apple = new Stock("Apple Inc.", "AAPL");
 
     @Autowired
     private MockMvc mockMvc;
@@ -58,7 +62,6 @@ public class PortfolioControllerSpecs {
                 MockMvcResultMatchers.status().isOk());
     }
 
-
     @Test
     public void getsAllPortfolios() throws Exception {
         final var request = givenRequestFor("/portfolio", false);
@@ -66,6 +69,17 @@ public class PortfolioControllerSpecs {
         thenExpect(resultActions,
                 MockMvcResultMatchers.status().isOk(),
                 MockMvcResultMatchers.jsonPath("$").isArray());
+    }
+
+    @Test
+    public void findsPortfolioById() throws Exception {
+        final String portfolioId = "1";
+        given(portfolioService.findById(portfolioId)).willReturn(Optional.of(new Portfolio(portfolioId, List.of(new Holding(new Date(), apple, 10, 25.56)))));
+        final var request = givenRequestFor("/portfolio/" + portfolioId, false);
+        final ResultActions resultActions = whenTheRequestIsMade(request);
+        thenExpect(resultActions,
+            MockMvcResultMatchers.status().isOk(),
+            MockMvcResultMatchers.jsonPath("$").isMap());
     }
 
     @Test

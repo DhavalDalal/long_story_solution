@@ -29,7 +29,7 @@ public class HoldingSpecs {
   }
 
   @Test
-  public void updatesNetWorthWhenUnderlyingStockHasNewTickerPrice() throws Exception {
+  public void updatesNetWorthWhenUnderlyingStockHasANewMarketPrice() throws Exception {
     given(nationalStockService.getPrice(apple.code)).willReturn(27.2);
     // When
     final Holding updatedHolding = appleHolding.updateCurrentPrice(nationalStockService);

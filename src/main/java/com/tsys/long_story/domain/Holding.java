@@ -4,7 +4,6 @@ import com.tsys.long_story.service.remote.NationalStockService;
 
 import java.time.Instant;
 import java.util.Date;
-import java.util.Objects;
 import java.util.logging.Logger;
 
 public class Holding {

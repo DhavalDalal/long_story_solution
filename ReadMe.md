@@ -4,39 +4,94 @@ The team uses Java and Spring Boot stack for their product.  Currently the codeb
 
 This product needs to process small and big JSON both, hence migrating to GSON is important for the faster response time of the App.  But alongside this migration, new features are needed to be delivered as customers have been asking for them since long.  Below is a prioritized story backlog for this.
 
-## Stories
-#### Story #1 View All Portfolios
+## Iterations and Stories
+
+### Past Iteration
+#### Story #1 View all Portfolios
+```
 As an administrator
 I want to see all the portfolios in the system
 so that I can use that data for my own analysis. 
-
-#### Story #2 Show net worth of individual portfolios along with total net worth
+```
+#### Story #2 View a Portfolio
+```
 As an administrator 
-I want to see individual net worth of all the portfolios along with total net worth 
-so that I can get an idea of the individual and total exposure to the markets
+I want to see an individual portfolio
+so that I can get an idea of the details in that portfolio.
+```
 
-#### Story #3  Track a Portfolio
+#### Story #3 View total net worth and individual portfolio net worth
+```
+As an administrator 
+I want to see individual net worth of the portfolios 
+and I want to see total net worth across all the portfolios
+so that I can get an idea of the individual and total exposure to the markets.
+```
+### This Iteration
+#### Story #4 Track a Portfolio
+```
+As an administrator 
+I want to update existing portfolio with latest market prices
+so that I can find out its current market net worth.
+```
+
+#### Story #5  View Portfolio Profit/Loss
+
+```
+As an administrator 
+I want to find out the current PnL situation in a given portfolio
+so that I can take necessary steps to reduce losses or increase profits.
+
+Given a portfolio
+When I view the PnL
+Then I should see the following:
+ 1. Purchase NetWorth (Purchase Price Networth)
+ 2. Current NetWorth (Based on Current Market Price)
+ 3. Profit/Loss (a negative value indicates loss)
+```
+
+### Next Iteration Using Separate Branch Constraint 
+
+#### Story #5 Migrate to GSON
+You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
+
+```
+
+```
+
+#### Story #6 Cache National Stock Service Calls 
+
+```
+
+```
 
 
-#### Story #4 Migrate to GSON
 
 
-#### Story #5 Apply Caching for Rate Limiting National Stock Service Calls 
+### Next Iteration Using Main Branch Only
+Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
+
+#### Story #5 Migrate to GSON
+```
+
+```
+
+
+#### Story #6 Cache National Stock Service Calls 
+```
+
+```
+
+
+**_NOTE_**: As will solve the same problem once with each constraint.  So you may have to clone this project twice for each constraint.
+
+
 
 
 ## How do we collaborate on stories?
 * You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories or
 
 * You may form 3-4 pairs, with one pair working on long-lived change, and the   remaining pairs working on faster releases of the short stories.
-
-## What are the Constraints?
-You will solve the same problem once with each constraint.  So you may have to clone this project twice for each constraint.
-
-### Constraint #1 - Must use a branch for Replace Jackson story
-You must use an SCM branch on which this long story will be developed.  You may or may not use short-lived branches for other stories and then merge it back to main when you are done with that story.
-
-### Constraint #2 - Must use Main Branch Only for all stories
-Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
 
 ## Instructions for running Perfect Portfolios
 Please see [Help](HELP.md)

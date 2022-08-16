@@ -65,15 +65,6 @@ public class PortfolioSpecs {
   }
 
   @Test
-  public void addHoldingsToPortfolio() {
-    final Portfolio portfolio = new Portfolio();
-    final Holding amazonHolding = new Holding(now, new Stock("Amazon Inc.", "AMZN"), 10, 35.56);
-    portfolio.add(amazonHolding);
-    portfolio.add(appleHolding);
-    assertThat(portfolio.getHoldings(), is(List.of(amazonHolding, appleHolding)));
-  }
-
-  @Test
   public void updateNetWorthBasedOnLatestPrices() throws Exception {
     // Given
     final ArrayList<Holding> holdings = new ArrayList<>() {{

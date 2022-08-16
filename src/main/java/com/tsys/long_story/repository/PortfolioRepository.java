@@ -51,14 +51,6 @@ public class PortfolioRepository {
     return new ArrayList<>(portfolios.values());
   }
 
-  public Boolean deleteById(String portfolioId) {
-    if (portfolios.containsKey(portfolioId)) {
-      portfolios.remove(portfolioId);
-      return true;
-    }
-    return false;
-  }
-
   public Portfolio saveOrUpdate(Portfolio portfolio) {
     var updated = portfolio.updateIdIfEmpty();
     portfolios.put(updated.id, updated);
