@@ -90,6 +90,13 @@ Use the main branch only for all the stories, you are not allowed to create a br
 
 * You may form 3-4 pairs, with one pair working on long-lived change, and the   remaining pairs working on faster releases of the short stories.
 
+## Build 
+* To build, simply run ```gradle clean build```
+
+## (Re-)Generate IDE Specific files
+* To generate Eclipse project: use ```gradle cleanEclipse eclipse```
+* To generate an Idea project: use ```gradle cleanIdea idea```
+
 ## Instructions for running Perfect Portfolios
 Please see [Help](HELP.md)
 
