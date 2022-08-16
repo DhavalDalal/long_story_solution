@@ -1,6 +1,6 @@
 # Getting Started
 
-## To Start Dev Loop 
+## To Start Dev and Test Loop 
 1. In the first Terminal (Boot Run) ==> ```gradle bootRun -Dspring.profiles.active=development``` or to run on another 
    port ```gradle bootRun -PjvmArgs="-Dserver.port=10001"```.  To see the Log INFO statements, 
    use ```gradle bootRun -Dspring.profiles.active=development -info```.  If ```-Dspring.profiles.active``` is not given, 

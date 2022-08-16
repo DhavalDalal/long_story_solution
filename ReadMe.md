@@ -1,4 +1,4 @@
-# Long Story
+# Perfect Portfolios
 
 The team uses Java and Spring Boot stack for their product.  Currently the codebase is using Jackson, a JSON library that is available out-of-box with Spring.  However,  based on the [benchmark results](https://www.overops.com/blog/the-ultimate-json-library-json-simple-vs-gson-vs-jackson-vs-json/) when comparing various JSON libraries like - Jackson, JSONP, GSON, JSON.simple, GSON won both benchmarks for big (~180MB size) and small (~80KB size) files when the tests ran on Java 11. GSON processes those files faster by almost 200+ ms before the next candidate.
 
@@ -35,7 +35,7 @@ I want to update existing portfolio with latest market prices
 so that I can find out its current market net worth.
 ```
 
-#### Story #5  View Portfolio Profit/Loss
+#### Story #5  View a Portfolio's Profit/Loss
 
 ```
 As an administrator 
@@ -49,6 +49,11 @@ Then I should see the following:
  2. Current NetWorth (Based on Current Market Price)
  3. Profit/Loss (a negative value indicates loss)
 ```
+
+### Next Iteration
+At this point, create 2 forks as there are 2 constraints and we want to be able to have:
+1. Common starting point for each
+2. Compare and contrast the two approaches
 
 ### Next Iteration Using Separate Branch Constraint 
 
@@ -66,8 +71,6 @@ You must use a separate branch on which this long story will be developed.  You 
 ```
 
 
-
-
 ### Next Iteration Using Main Branch Only
 Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
 
@@ -81,12 +84,6 @@ Use the main branch only for all the stories, you are not allowed to create a br
 ```
 
 ```
-
-
-**_NOTE_**: As will solve the same problem once with each constraint.  So you may have to clone this project twice for each constraint.
-
-
-
 
 ## How do we collaborate on stories?
 * You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories or
