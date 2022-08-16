@@ -41,7 +41,7 @@ public class PortfolioController {
 
   @GetMapping("/portfolio/networth")
   public ResponseEntity totalNetWorth() {
-    LOG.info(() -> String.format("==> Getting Portfolio Networth"));
+    LOG.info(() -> String.format("==> Getting Total Portfolio Networth"));
     return ResponseEntity.ok(service.totalNetWorth());
   }
 }
