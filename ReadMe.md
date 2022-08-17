@@ -4,7 +4,7 @@ The team uses Java and Spring Boot stack for their product.  Currently the codeb
 
 This product needs to process small and big JSON both, hence migrating to GSON is important for the faster response time of the App.  But alongside this migration, new features are needed to be delivered as customers have been asking for them since long.  Below is a prioritized story backlog for this.
 
-## Iterations and Stories
+## Iterations
 
 ### Past Iteration
 #### Story #1 View all Portfolios
@@ -28,6 +28,14 @@ and I want to see total net worth across all the portfolios
 so that I can get an idea of the individual and total exposure to the markets.
 ```
 ### This Iteration
+* The stories are already in prioritized order. 
+
+
+* There is a dependency of Story #5 on Story #4, hence Story #4 needs to be delivered first.
+
+* Form an ensemble and work on delivering them.
+
+
 #### Story #4 Track a Portfolio
 ```
 As an administrator 
@@ -51,53 +59,73 @@ Then I should see the following:
 ```
 
 ### Next Iteration
-At this point, create 2 forks as there are 2 constraints and we want to be able to have:
-1. Common starting point for each
-2. Compare and contrast the two approaches
 
-### Next Iteration Using Separate Branch Constraint 
+* The stories are already in prioritized order.
 
-#### Story #5 Migrate to GSON
-You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
-
-```
-
-```
-
-#### Story #6 Cache National Stock Service Calls 
-
-```
-
-```
-
-
-### Next Iteration Using Main Branch Only
-Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
-
-#### Story #5 Migrate to GSON
-```
-
-```
-
-
-#### Story #6 Cache National Stock Service Calls 
-```
-
-```
-
-## How do we collaborate on stories?
-* You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories or
+* You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories OR
 
 * You may form 3-4 pairs, with one pair working on long-lived change, and the   remaining pairs working on faster releases of the short stories.
 
-## Build 
-* To build, simply run ```gradle clean build```
+* This iteration totally will be played twice, once for each constraint. So, create 2 forks as there are 2 constraints.  This is because we want to be able to:
+	1. Have a common starting point for each and
+	2. Compare and contrast the two approaches.
+
+
+	#### 1. Using Separate Branch Constraint 
+
+	#### Story #5 Migrate to GSON
+	You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
+
+	```
+	In order to process both, small and big JSON for faster response time of the app,
+	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
+	```
+	
+	#### Story #6 Cache National Stock Service Calls 
+	Due to increasing volume of users and the increase in the cost of making API calls to the National Stock Service, the PO has decided to stop real-time calls to the National Stock service for a ticker, instead a call is made only once in a day, i.e., after the close of market. 
+	
+	```
+	In order to reduce the costs of making outbound ticker price calls 
+	And to further increase the response time of the app,
+	I want to implement caching.
+	```
+	
+	#### Story #7 Add a new Portfolio
+	```
+	As an administrator 
+	I want to create a portfolio in the system
+	so that I can grow the business.
+	```
+	
+	
+	#### 2. Using Main Branch Only
+	Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
+	
+	#### Story #5 Migrate to GSON
+	```
+	In order to process both, small and big JSON for faster response time of the app,
+	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
+	```
+	
+	#### Story #6 Cache National Stock Service Calls 
+	```
+	In order to reduce the costs of making outbound ticker price calls 
+	And to further increase the response time of the app,
+	I want to implement caching.
+	```
+	
+	#### Story #7 Add a new Portfolio
+	```
+	As an administrator 
+	I want to create a portfolio in the system
+	so that I can grow the business.
+	```
 
 ## (Re-)Generate IDE Specific files
-* To generate Eclipse project: use ```gradle cleanEclipse eclipse```
-* To generate an Idea project: use ```gradle cleanIdea idea```
+* To generate or regenerate after adding/removing a new dependency, for creating an Eclipse project: use ```gradle cleanEclipse eclipse```
+* To generate or regenerate after adding/removing a new dependency, for creating an Idea project: use ```gradle cleanIdea idea```
 
-## Instructions for running Perfect Portfolios
+## Instructions for building and running Perfect Portfolios
 Please see [Help](HELP.md)
 
 ## Retrospectives

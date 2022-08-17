@@ -1,5 +1,8 @@
 # Getting Started
 
+## To Build 
+* Simply run ```gradlew clean build``` or ```gradle clean build``` on the command line.
+
 ## To Start Dev and Test Loop 
 1. In the first Terminal (Boot Run) ==> ```gradle bootRun -Dspring.profiles.active=development``` or to run on another 
    port ```gradle bootRun -PjvmArgs="-Dserver.port=10001"```.  To see the Log INFO statements, 
