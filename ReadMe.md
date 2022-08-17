@@ -28,7 +28,7 @@ and I want to see total net worth across all the portfolios
 so that I can get an idea of the individual and total exposure to the markets.
 ```
 ### This Iteration
-* The stories are already in prioritized order. 
+* The stories are already in the prioritized order. 
 
 
 * There is a dependency of Story #5 on Story #4, hence Story #4 needs to be delivered first.
@@ -60,7 +60,7 @@ Then I should see the following:
 
 ### Next Iteration
 
-* The stories are already in prioritized order.
+* The stories are already in the prioritized order.
 
 * You may form 2-3 different ensembles, with one working on long-lived change, and the other ensembles working on faster releases of the short stories OR
 
@@ -80,6 +80,8 @@ Then I should see the following:
 	In order to process both, small and big JSON for faster response time of the app,
 	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
 	```
+	
+	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
 	
 	#### Story #6 Cache National Stock Service Calls 
 	Due to increasing volume of users and the increase in the cost of making API calls to the National Stock Service, the PO has decided to stop real-time calls to the National Stock service for a ticker, instead a call is made only once in a day, i.e., after the close of market. 
