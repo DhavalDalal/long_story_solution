@@ -39,7 +39,7 @@ so that I can get an idea of the individual and total exposure to the markets.
 #### Story #4 Track a Portfolio
 ```
 As an administrator 
-I want to update existing portfolio with latest market prices
+I want to update an existing portfolio with latest market prices
 so that I can find out its current market net worth.
 ```
 
