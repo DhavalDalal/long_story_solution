@@ -44,4 +44,12 @@ public class PortfolioController {
     LOG.info(() -> String.format("==> Getting Total Portfolio Networth"));
     return ResponseEntity.ok(service.totalNetWorth());
   }
+
+  @GetMapping("/portfolio/{id}/track")
+  public ResponseEntity track(@PathVariable String id) {
+    LOG.info(() -> String.format("==> Tracking Portfolio with id = %s", id));
+    return service.track(id)
+            .map(p -> ResponseEntity.noContent().build())
+            .orElse(ResponseEntity.notFound().build());
+  }
 }

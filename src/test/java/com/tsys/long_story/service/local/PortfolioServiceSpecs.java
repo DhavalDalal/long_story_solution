@@ -17,9 +17,11 @@ import java.util.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("UnitTest")
+@ExtendWith(MockitoExtension.class)
 public class PortfolioServiceSpecs {
     private final Stock apple = new Stock("Apple Inc.", "AAPL");
     private final Stock google = new Stock("Google Inc.", "GOOG");
@@ -93,5 +95,23 @@ public class PortfolioServiceSpecs {
         // Then
         final Double totalNetWorth = (Double) netWorth.get("totalNetWorth");
         assertThat(totalNetWorth, is(portfolio1.networth() + portfolio2.networth()));
+    }
+
+    @Test
+    public void trackReturnsAPortfolioWithSamePortfolioId() {
+        assertThat(portfolioService.track("1"), is(Optional.of("1")));
+    }
+
+    @Test
+    public void trackUpdatesExistingPortfolioWithNewPrices() throws Exception {
+        // new Apple price $20 * 8 = 160
+        given(nationalStockService.getPrice(apple.code)).willReturn(20d);
+        // new google price, $50 * 78 = 3900
+        given(nationalStockService.getPrice(google.code)).willReturn(50d);
+        final double expectedNetWorth = 4060;
+        portfolioService.track("1");
+
+        assertThat(portfolioService.findById("1")
+                .map(p -> p.networth()), is(Optional.of(expectedNetWorth)));
     }
 }

@@ -40,4 +40,10 @@ public class PortfolioService {
             .reduce(0d, (a, b) -> a + b);
         return Map.of("totalNetWorth", totalNetWorth, "portfolios", networthOfPortfolios);
     }
+
+    public Optional<String> track(String portfolioId) {
+        Optional<Portfolio> portfolio = findById(portfolioId);
+        portfolio.ifPresent(p -> repository.saveOrUpdate(p.track(stockService)));
+        return portfolio.map(p -> p.id);
+    }
 }
