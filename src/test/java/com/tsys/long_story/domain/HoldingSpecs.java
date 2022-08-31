@@ -32,7 +32,7 @@ public class HoldingSpecs {
   public void updatesNetWorthWhenUnderlyingStockHasANewMarketPrice() throws Exception {
     given(nationalStockService.getPrice(apple.code)).willReturn(27.2);
     // When
-    final Holding updatedHolding = appleHolding.updateCurrentPrice(nationalStockService);
+    final Holding updatedHolding = appleHolding.updatePrice(nationalStockService);
     // Then
     assertThat(updatedHolding.networth(), is(272.0));
   }
@@ -43,7 +43,7 @@ public class HoldingSpecs {
     final double oldNetWorth = appleHolding.networth();
     given(nationalStockService.getPrice(apple.code)).willThrow(new Exception("Could Not Connect to Nation Stock Exchange!"));
     // When
-    final Holding updatedHolding = appleHolding.updateCurrentPrice(nationalStockService);
+    final Holding updatedHolding = appleHolding.updatePrice(nationalStockService);
     // Then
     assertThat(updatedHolding.networth(), is(oldNetWorth));
   }

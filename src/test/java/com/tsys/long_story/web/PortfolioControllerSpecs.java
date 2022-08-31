@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 // For Junit4, use @RunWith
 // @RunWith(SpringRunner.class)
@@ -63,12 +64,30 @@ public class PortfolioControllerSpecs {
     }
 
     @Test
+    public void gettingAllPortfoliosReturnsOK() throws Exception {
+        final var request = givenRequestFor("/portfolio", false);
+        final ResultActions resultActions = whenTheRequestIsMade(request);
+        thenExpect(resultActions,
+                MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
     public void getsAllPortfolios() throws Exception {
         final var request = givenRequestFor("/portfolio", false);
         final ResultActions resultActions = whenTheRequestIsMade(request);
         thenExpect(resultActions,
-                MockMvcResultMatchers.status().isOk(),
-                MockMvcResultMatchers.jsonPath("$").isArray());
+            MockMvcResultMatchers.jsonPath("$").isArray());
+        verify(portfolioService).findAll();
+    }
+
+    @Test
+    public void findsPortfolioReturnsOK() throws Exception {
+        final String portfolioId = "1";
+        given(portfolioService.findById(portfolioId)).willReturn(Optional.of(new Portfolio(portfolioId, List.of(new Holding(new Date(), apple, 10, 25.56)))));
+        final var request = givenRequestFor("/portfolio/" + portfolioId, false);
+        final ResultActions resultActions = whenTheRequestIsMade(request);
+        thenExpect(resultActions,
+            MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -78,8 +97,26 @@ public class PortfolioControllerSpecs {
         final var request = givenRequestFor("/portfolio/" + portfolioId, false);
         final ResultActions resultActions = whenTheRequestIsMade(request);
         thenExpect(resultActions,
-            MockMvcResultMatchers.status().isOk(),
             MockMvcResultMatchers.jsonPath("$").isMap());
+        verify(portfolioService).findById(portfolioId);
+    }
+
+    @Test
+    public void findReturnsNotFoundForNonExistentId() throws Exception {
+        final String portfolioId = "NON-EXISTENT-ID";
+        given(portfolioService.findById(portfolioId)).willReturn(Optional.empty());
+        final var request = givenRequestFor("/portfolio/" + portfolioId, false);
+        final ResultActions resultActions = whenTheRequestIsMade(request);
+        thenExpect(resultActions,
+            MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
+    public void gettingNetWorthOfAllPortfoliosReturnsOK() throws Exception {
+        final var request = givenRequestFor("/portfolio/networth", false);
+        final ResultActions resultActions = whenTheRequestIsMade(request);
+        thenExpect(resultActions,
+            MockMvcResultMatchers.status().isOk());
     }
 
     @Test
@@ -87,8 +124,8 @@ public class PortfolioControllerSpecs {
         final var request = givenRequestFor("/portfolio/networth", false);
         final ResultActions resultActions = whenTheRequestIsMade(request);
         thenExpect(resultActions,
-                MockMvcResultMatchers.status().isOk(),
-                MockMvcResultMatchers.jsonPath("$").isMap());
+            MockMvcResultMatchers.jsonPath("$").isMap());
+        verify(portfolioService).totalNetWorth();
     }
 
     private MockHttpServletRequestBuilder givenRequestFor(String url, boolean isPostRequest) {

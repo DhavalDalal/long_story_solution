@@ -4,9 +4,13 @@ import com.tsys.long_story.domain.Portfolio;
 import com.tsys.long_story.domain.Stock;
 import com.tsys.long_story.repository.PortfolioRepository;
 import com.tsys.long_story.service.remote.NationalStockService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.*;
 
@@ -14,6 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(MockitoExtension.class)
 @Tag("UnitTest")
 public class PortfolioServiceSpecs {
     private final Stock apple = new Stock("Apple Inc.", "AAPL");
@@ -36,7 +41,12 @@ public class PortfolioServiceSpecs {
     @Mock
     private NationalStockService nationalStockService;
 
-    private PortfolioService portfolioService = new PortfolioService(nationalStockService, portfolioRepository);
+    private PortfolioService portfolioService;
+
+    @BeforeEach
+    public void injectMocks() {
+        portfolioService = new PortfolioService(nationalStockService, portfolioRepository);
+    }
 
     @Test
     public void findsAllAvailablePortfolios() {

@@ -50,9 +50,8 @@ public class Portfolio {
   }
 
   public Portfolio track(NationalStockService stockService) {
-    Stream.iterate(0, index -> index + 1)
-            .limit(holdings.size())
-            .forEach(index -> holdings.get(index).updateCurrentPrice(stockService));
+    holdings.stream()
+        .forEach(holding -> holding.updatePrice(stockService));
     return this;
   }
 

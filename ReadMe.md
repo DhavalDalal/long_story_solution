@@ -5,6 +5,7 @@ The team uses Java and Spring Boot stack for their product.  Currently the codeb
 This product needs to process small and big JSON both, hence migrating to GSON is important for the faster response time of the App.  But alongside this migration, new features are needed to be delivered as customers have been asking for them since long.  Below is a prioritized story backlog for this.
 
 ## Iterations
+You may want to read [Glossary Of Terms](#Glossary-Of-Terms) used in this domain to familiarize yourself with them.
 
 ### Past Iteration
 #### Story #1 View all Portfolios
@@ -84,10 +85,10 @@ Then I should see the following:
 	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
 	
 	#### Story #6 Cache National Stock Service Calls 
-	Due to increasing volume of users and the increase in the cost of making API calls to the National Stock Service, the PO has decided to stop real-time calls to the National Stock service for a ticker, instead a call is made only once in a day, i.e., after the close of market. 
+	Due to increasing volume of users and the increase in the cost of making API calls to the National Stock Service, the PO has decided to stop real-time calls to the National Stock service for a stock tick, instead a call is made only once in a day, i.e., after the close of market. 
 	
 	```
-	In order to reduce the costs of making outbound ticker price calls 
+	In order to reduce the costs of making outbound calls for stock ticks 
 	And to further increase the response time of the app,
 	I want to implement caching.
 	```
@@ -111,7 +112,7 @@ Then I should see the following:
 	
 	#### Story #6 Cache National Stock Service Calls 
 	```
-	In order to reduce the costs of making outbound ticker price calls 
+	In order to reduce the costs of making outbound calls for stock ticks 
 	And to further increase the response time of the app,
 	I want to implement caching.
 	```
@@ -122,6 +123,14 @@ Then I should see the following:
 	I want to create a portfolio in the system
 	so that I can grow the business.
 	```
+
+## Glossary Of Terms
+1. Stock - is a security that represents the ownership of a fraction of the issuing company. 
+2. Holding - Quantity of stocks purchased at a given price.
+3. Portfolio - A bucket containing all the stock holdings purchased so far by a customer.
+4. Net Worth - is the total monetary value of the stocks in a given portfolio.
+5. Tick - is any change in the price of the security, whether that movement is up or down.
+6. PnL - Profit and Loss
 
 ## (Re-)Generate IDE Specific files
 * To generate or regenerate after adding/removing a new dependency, for creating an Eclipse project: use ```gradle cleanEclipse eclipse```

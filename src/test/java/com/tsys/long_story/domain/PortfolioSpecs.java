@@ -96,7 +96,7 @@ public class PortfolioSpecs {
     // When
     final Portfolio updatedPortfolio = portfolio.track(nationalStockService);
     // Then
-    Double oldNetWorth = (googleHolding.quantity * googleHolding.currentPrice) + (appleHolding.quantity * appleHolding.currentPrice);
+    Double oldNetWorth = (googleHolding.quantity * googleHolding.lastPrice) + (appleHolding.quantity * appleHolding.lastPrice);
     assertThat(updatedPortfolio.networth(), is(oldNetWorth));
   }
 
@@ -114,7 +114,7 @@ public class PortfolioSpecs {
     // When
     final Portfolio updatedPortfolio = portfolio.track(nationalStockService);
     // Then
-    Double updatedNetWorth = (googleHolding.quantity * googleHolding.currentPrice) + (appleHolding.quantity * newApplePrice);
+    Double updatedNetWorth = (googleHolding.quantity * googleHolding.lastPrice) + (appleHolding.quantity * newApplePrice);
     assertThat(updatedPortfolio.networth(), is(updatedNetWorth));
   }
 }
