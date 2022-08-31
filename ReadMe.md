@@ -55,7 +55,7 @@ Given a portfolio
 When I view the PnL
 Then I should see the following:
  1. Purchase NetWorth (Purchase Price Networth)
- 2. Current NetWorth (Based on Current Market Price)
+ 2. Current NetWorth (Based on Last Market Price)
  3. Profit/Loss (a negative value indicates loss)
 ```
 
