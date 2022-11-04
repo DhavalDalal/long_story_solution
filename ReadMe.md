@@ -74,7 +74,7 @@ Then I should see the following:
 
 	#### 1. Using Separate Branch Constraint 
 
-	#### Story #5 Migrate to GSON
+	#### Story #6 Migrate to GSON
 	You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
 
 	```
@@ -84,7 +84,7 @@ Then I should see the following:
 	
 	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
 	
-	#### Story #6 Cache National Stock Service Calls 
+	#### Story #7 Cache National Stock Service Calls 
 	Due to increasing volume of users and the increase in the cost of making API calls to the National Stock Service, the PO has decided to stop real-time calls to the National Stock service for a stock tick, instead a call is made only once in a day, i.e., after the close of market. 
 	
 	```
@@ -93,7 +93,7 @@ Then I should see the following:
 	I want to implement caching.
 	```
 	
-	#### Story #7 Add a new Portfolio
+	#### Story #8 Add a new Portfolio
 	```
 	As an administrator 
 	I want to create a portfolio in the system
@@ -104,20 +104,20 @@ Then I should see the following:
 	#### 2. Using Main Branch Only
 	Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
 	
-	#### Story #5 Migrate to GSON
+	#### Story #6 Migrate to GSON
 	```
 	In order to process both, small and big JSON for faster response time of the app,
 	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
 	```
 	
-	#### Story #6 Cache National Stock Service Calls 
+	#### Story #7 Cache National Stock Service Calls 
 	```
 	In order to reduce the costs of making outbound calls for stock ticks 
 	And to further increase the response time of the app,
 	I want to implement caching.
 	```
 	
-	#### Story #7 Add a new Portfolio
+	#### Story #8 Add a new Portfolio
 	```
 	As an administrator 
 	I want to create a portfolio in the system
