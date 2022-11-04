@@ -75,11 +75,12 @@ Then I should see the following:
 	#### 1. Using Separate Branch Constraint 
 
 	#### Story #6 Migrate to GSON
-	You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
+	After doing a spike on measuring response times for requests, the team has discovered that the bottleneck is not the database, but the currently used JSON library is not performant, especially for big JSON responses.  Hence the team has decided to migrate to GSON library.
 
 	```
-	In order to process both, small and big JSON for faster response time of the app,
-	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
+	As an administrator, 
+	I want to see a very quick reponse after I make a request to the app for things like portfolios, PnL by portfolios etc... 
+	So that I don't have to wait long for portfolios that are quite diversified and big.
 	```
 	
 	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
@@ -105,10 +106,15 @@ Then I should see the following:
 	Use the main branch only for all the stories, you are not allowed to create a branch for any stories.
 	
 	#### Story #6 Migrate to GSON
+	After doing a spike on measuring response times for requests, the team has discovered that the bottleneck is not the database, but the currently used JSON library is not performant, especially for big JSON responses.  Hence the team has decided to migrate to GSON library.
+
 	```
-	In order to process both, small and big JSON for faster response time of the app,
-	I want to migrate to GSON library from existing Jackson and JSON libraries being used.
+	As an administrator, 
+	I want to see a very quick reponse after I make a request to the app for things like portfolios, PnL by portfolios etc... 
+	So that I don't have to wait long for portfolios that are quite diversified and big.
 	```
+	
+	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
 	
 	#### Story #7 Cache National Stock Service Calls 
 	```
