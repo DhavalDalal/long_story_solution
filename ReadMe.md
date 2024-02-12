@@ -1,6 +1,6 @@
 # Perfect Portfolios
 
-The team uses Java and Spring Boot stack for their product.  Currently the codebase is using Jackson, a JSON library that is available out-of-box with Spring.  However,  based on the [benchmark results](https://www.overops.com/blog/the-ultimate-json-library-json-simple-vs-gson-vs-jackson-vs-json/) when comparing various JSON libraries like - Jackson, JSONP, GSON, JSON.simple, GSON won both benchmarks for big (~180MB size) and small (~80KB size) files when the tests ran on Java 11. GSON processes those files faster by almost 200+ ms before the next candidate.
+The team uses Java and Spring Boot stack for their product.  Currently the codebase is using Jackson, a JSON library that is available out-of-box with Spring.  However,  based on the [benchmark results](https://www.harness.io/blog/ultimate-json-library-comparison) when comparing various JSON libraries like - Jackson, JSONP, GSON, JSON.simple, GSON won both benchmarks for big (~180MB size) and small (~80KB size) files when the tests ran on Java 11. GSON processes those files faster by almost 200+ ms before the next candidate.
 
 This product needs to process small and big JSON both, hence migrating to GSON is important for the faster response time of the App.  But alongside this migration, new features are needed to be delivered as customers have been asking for them since long.  Below is a prioritized story backlog for this.
 
@@ -75,6 +75,8 @@ Then I should see the following:
 	#### 1. Using Separate Branch Constraint 
 
 	#### Story #6 Migrate to GSON
+	You must use a separate branch on which this long story will be developed.  You may or may not use short-lived branches for other stories. After finishing this story  merge it back to main when you are done with that story.
+	
 	After doing a spike on measuring response times for requests, the team has discovered that the bottleneck is not the database, but the currently used JSON library is not performant, especially for big JSON responses.  Hence the team has decided to migrate to GSON library.
 
 	```
@@ -115,7 +117,7 @@ Then I should see the following:
 	```
 	
 	You may refer to help on migrating to GSON library in spring Boot and other related articles [here](https://github.com/DhavalDalal/long-story/blob/main/HELP.md#configuring-spring-boot-to-use-gson-instead-of-jackson).
-	
+
 	#### Story #7 Cache National Stock Service Calls 
 	```
 	In order to reduce the costs of making outbound calls for stock ticks 
